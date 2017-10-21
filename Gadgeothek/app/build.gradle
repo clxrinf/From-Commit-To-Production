@@ -22,6 +22,17 @@ android {
     dexOptions {
         jumboMode true
     }
+
+    productFlavors {
+        full {
+            applicationIdSuffix ".full"
+            versionNameSuffix '-full'
+        }
+        demo {
+            applicationIdSuffix ".demo"
+            versionNameSuffix '-demo'
+        }
+    }
 }
 
 dependencies {
