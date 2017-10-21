@@ -1,0 +1,24 @@
+pipeline {
+    agent {
+        node {
+            label 'jenkins-slave4.yvu.ch'
+        }
+    }
+    stages {
+        stage('Build') {
+            steps {
+                sh 'echo Build'
+            }
+        }
+        stage('End2End Tests') {
+            steps {
+                sh 'echo End2End Tests'
+            }
+        }
+        stage('Publish') {
+            steps {
+                sh 'echo Publish'
+            }
+        }
+    }
+}
