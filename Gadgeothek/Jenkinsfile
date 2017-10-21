@@ -23,7 +23,7 @@ pipeline {
         }
     }
     post {
-        succes {
+        success {
             archiveArtifacts '**/outputs/apk/*.apk'
         }
     }
