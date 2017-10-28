@@ -35,6 +35,7 @@ pipeline {
         }
         always {
             junit allowEmptyResults: true, testResults: '**/build/test-results/testDemoDebugUnitTest/*.xml'
+            sh '(cd Gadgeothek; ./gradlew storeResults)'
         }
     }
 }
