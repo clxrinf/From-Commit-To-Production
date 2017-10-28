@@ -37,16 +37,18 @@ pipeline {
             cleanWs()
         }
         changed {
-
+            sh 'echo Changed'
         }
         success {
             // archiveArtifacts '**/outputs/apk/*.apk'
+            sh 'echo Success'
         }
         unstable {
+            sh 'echo Unstable'
 
         }
         failure {
-
+            sh 'echo Failure'
         }
     }
 }
