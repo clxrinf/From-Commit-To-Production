@@ -11,6 +11,12 @@ pipeline {
                 sh '(cd Gadgeothek; ./gradlew build)'
             }
         }
+        stage('Unit Tests') {
+            steps {
+                sh 'echo Unit Tests'
+                sh '(cd Gadgeothek; ./gradlew test)'
+            }
+        }
         stage('End2End Tests') {
             steps {
                 sh 'echo End2End Tests'
