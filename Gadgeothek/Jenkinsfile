@@ -30,14 +30,23 @@ pipeline {
         }
     }
     post {
-        success {
-            archiveArtifacts '**/outputs/apk/*.apk'
-        }
         always {
             junit allowEmptyResults: true, testResults: '**/build/test-results/testDemoDebugUnitTest/*.xml'
             sh '(cd Gadgeothek; ./gradlew storeResults)'
 
             cleanWs()
+        }
+        changed {
+
+        }
+        success {
+            // archiveArtifacts '**/outputs/apk/*.apk'
+        }
+        unstable {
+
+        }
+        failure {
+
         }
     }
 }

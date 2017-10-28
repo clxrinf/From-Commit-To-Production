@@ -45,7 +45,7 @@ public class LoanTest {
     public void addition_correct() throws Exception {
         Assert.assertEquals(4, 2 + 2);
     }
-    
+
     @Test
     public void addition_isNotCorrect() throws Exception {
         Assert.assertNotEquals(5, 2 + 2);
