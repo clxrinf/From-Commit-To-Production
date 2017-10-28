@@ -14,7 +14,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'echo Unit Tests'
-                sh '(cd Gadgeothek; ./gradlew test)'
+                sh '(cd Gadgeothek; ./gradlew clean test)'
             }
         }
         stage('End2End Tests') {
