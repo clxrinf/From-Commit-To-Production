@@ -10,6 +10,11 @@ pipeline {
                 sh 'echo Build'
                 sh '(cd Gadgeothek; ./gradlew build)'
             }
+            post {
+                success {
+                    archiveArtifacts '**/outputs/apk/*.apk'
+                }
+            }
         }
         stage('Unit Tests') {
             steps {
@@ -35,20 +40,6 @@ pipeline {
             sh '(cd Gadgeothek; ./gradlew storeResults)'
 
             cleanWs()
-        }
-        changed {
-            sh 'echo Changed'
-        }
-        success {
-            // archiveArtifacts '**/outputs/apk/*.apk'
-            sh 'echo Success'
-        }
-        unstable {
-            sh 'echo Unstable'
-
-        }
-        failure {
-            sh 'echo Failure'
         }
     }
 }
