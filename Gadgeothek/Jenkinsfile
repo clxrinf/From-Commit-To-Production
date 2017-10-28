@@ -14,7 +14,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 sh 'echo Unit Tests'
-                sh '(cd Gadgeothek; ./gradlew clean test)'
+                sh '(cd Gadgeothek; ./gradlew test)'
             }
         }
         stage('End2End Tests') {
@@ -36,6 +36,8 @@ pipeline {
         always {
             junit allowEmptyResults: true, testResults: '**/build/test-results/testDemoDebugUnitTest/*.xml'
             sh '(cd Gadgeothek; ./gradlew storeResults)'
+
+            cleanWs()
         }
     }
 }

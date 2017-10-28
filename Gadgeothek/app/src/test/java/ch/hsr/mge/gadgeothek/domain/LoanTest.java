@@ -1,6 +1,7 @@
 package ch.hsr.mge.gadgeothek.domain;
 
 import org.hamcrest.core.Is;
+import org.hamcrest.core.IsNot;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -37,5 +38,21 @@ public class LoanTest {
         calendar.set(Calendar.MILLISECOND, 0);
 
         return calendar.getTime();
+    }
+
+
+    @Test
+    public void addition_correct() throws Exception {
+        Assert.assertEquals(4, 2 + 2);
+    }
+    
+    @Test
+    public void addition_isNotCorrect() throws Exception {
+        Assert.assertNotEquals(5, 2 + 2);
+    }
+
+    @Test
+    public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
+        Assert.assertTrue(true);
     }
 }
