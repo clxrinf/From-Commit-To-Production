@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'jenkins-slave4.yvu.ch'
+            label 'jenkins-slave3.yvu.ch'
         }
     }
     stages {

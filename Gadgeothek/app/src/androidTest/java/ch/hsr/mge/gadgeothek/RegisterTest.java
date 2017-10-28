@@ -17,6 +17,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import ch.hsr.mge.gadgeothek.service.LibraryService;
 import ch.hsr.mge.gadgeothek.ui.GadgeothekActivity;
 import ch.hsr.mge.gadgeothek.ui.RegisterActivity;
 
@@ -43,7 +44,8 @@ public class RegisterTest {
         // SystemClock.sleep(5000);
 
         // Button Register (View) klicken
-        // Espresso.onView(ViewMatchers.withId(R.id.registerButton)).perform(ViewActions.click());
+        LibraryService.setServerAddress("http://gadgeothek.yvu.ch:8080");
+        Espresso.onView(ViewMatchers.withId(R.id.registerButton)).perform(ViewActions.click());
 
         // Intents.intended(IntentMatchers.hasComponent(new ComponentName(InstrumentationRegistry.getTargetContext(), GadgeothekActivity.class)));
 
