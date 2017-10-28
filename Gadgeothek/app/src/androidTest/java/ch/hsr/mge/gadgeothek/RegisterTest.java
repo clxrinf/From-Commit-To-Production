@@ -44,8 +44,8 @@ public class RegisterTest {
         // SystemClock.sleep(5000);
 
         // Button Register (View) klicken
-        LibraryService.setServerAddress("http://gadgeothek.yvu.ch:8080");
-        Espresso.onView(ViewMatchers.withId(R.id.registerButton)).perform(ViewActions.click());
+        // LibraryService.setServerAddress("http://gadgeothek.yvu.ch:8080");
+        // Espresso.onView(ViewMatchers.withId(R.id.registerButton)).perform(ViewActions.click());
 
         // Intents.intended(IntentMatchers.hasComponent(new ComponentName(InstrumentationRegistry.getTargetContext(), GadgeothekActivity.class)));
 
