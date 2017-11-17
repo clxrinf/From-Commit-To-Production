@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.answers.CustomEvent;
+import com.crashlytics.android.answers.LoginEvent;
+
 import ch.hsr.mge.gadgeothek.R;
 
 public class LoginActivity extends AbstractAuthenticationActivity {
@@ -97,15 +101,19 @@ public class LoginActivity extends AbstractAuthenticationActivity {
     }
 
     protected void loginSucceeded(boolean isAutoLogin) {
+
+        Answers.getInstance().logLogin(new LoginEvent().putSuccess(true));
         startMainActivity(isAutoLogin);
     }
 
     protected void loginFailed(String message) {
+        Answers.getInstance().logLogin(new LoginEvent().putSuccess(false));
         showProgress(loginFormView, progressView, false);
         showInDismissableSnackbar(loginFormView, message);
     }
 
     public void onRegisterButton(View view) {
+        Answers.getInstance().logCustom(new CustomEvent("onRegisterButton").putCustomAttribute("Register", 4711));
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right_to_left, R.anim.slide_out_right_to_left);
