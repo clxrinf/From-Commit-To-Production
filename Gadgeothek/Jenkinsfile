@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-            label 'jenkins-slave3.yvu.ch'
+            label 'jenkins-slave4.yvu.ch'
         }
     }
     stages {
@@ -22,10 +22,21 @@ pipeline {
                 sh '(cd Gadgeothek; ./gradlew test)'
             }
         }
+        /*
         stage('End2End Tests') {
             steps {
                 sh 'echo End2End Tests'
                 sh '(cd Gadgeothek; ./gradlew connectedAndroidTest)'
+            }
+        }
+        */
+
+        stage('Package') {
+            steps {
+                sh './Gadgeothek/scripts/package-android.sh'
+            }
+            post {
+                success { archiveArtifacts 'Gadgeothek/app/build/outputs/apk/Gadgeothek.apk' }
             }
         }
         stage('Publish') {
